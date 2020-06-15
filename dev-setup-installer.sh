@@ -6,7 +6,7 @@
 #
 ############################################
 # update apt package registry
-#apt-get update
+apt-get update
 
 
 # check if package is already installed
