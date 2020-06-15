@@ -10,7 +10,7 @@
   DEFAULT_SHELL="zsh"
 #############################################
 # update apt package registry
-# apt-get update
+apt-get update
 
 
 # check if package is already installed
@@ -20,7 +20,7 @@ check_package_installed(){
 	echo Checking for $REQUIRED_PKG: $PKG_OK
 	if [ "" = "$PKG_OK" ]; then
 		  echo "No $REQUIRED_PKG. Setting up $REQUIRED_PKG."
-		  sudo apt-get --yes install $REQUIRED_PKG
+		  apt-get --yes install $REQUIRED_PKG
 	else
 		echo $REQUIRED_PKG already installed.
 		 return 1 
@@ -60,6 +60,7 @@ if [ "$DEFAULT_SHELL" == "zsh" ]; then
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
   # setup zsh dotfile aliases
   $(rm ~/.zshrc) && $(ln -s -f ~/dotfiles/.zshrc ~/.zshrc )
+  source ~/.zshrc
 fi
 
 echo "Installing Node Version Manager(nvm)"
