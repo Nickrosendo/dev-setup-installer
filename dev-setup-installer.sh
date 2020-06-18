@@ -75,16 +75,18 @@ check_package_installed "silversearcher-ag"
 # get neovim
 check_package_installed "neovim"
 
+# create neovim configuration directory
+[ -d ~/.config ] || mkdir -p ~/.config 
+
+# setup neovim dotfiles aliases
+ln -sf ~/dotfiles/nvim ~/.config/nvim
+
 #get vim-plug
 [ -a "$(which curl)" ] && curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-# create neovim configuration directory
-[ -d ~/.config ] || mkdir -p ~/.config 
-mkdir -p ~/.config/nvim
-
-# setup neovim dotfiles aliases
-ln -s -f ~/dotfiles/.vimrc ~/.config/nvim/init.vim
+# install vim plugins
+[ -a "$(which vim)" ] && vim -c 'PlugInstall --sync' + qa 
 
 # get tldr
 [ -a "$(which npm)" ] && npm install -g tldr
