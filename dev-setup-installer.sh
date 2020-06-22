@@ -59,7 +59,7 @@ source "$HOME"/.zshrc
     [ -n "$(nvm --version)" ] && $(nvm install "$DEFAULT_NODE_VERSION" && nvm use "$DEFAULT_NODE_VERSION")
 
 # get yarn 
-[ -a "$(which node)" ] && ! [ -d "$(which yarn)" ] && curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add - \
+[ -a "$(which node)" ] && ! [ -a "$(which yarn)" ] && curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add - \
     echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list  &&
     apt-get update apt-get install --no-install-recommends yarn
 
@@ -93,3 +93,13 @@ ln -sf ~/dotfiles/nvim ~/.config/nvim
 
 # get htop
 check_package_installed "htop"
+
+# get docker
+
+# get redis
+
+# get nginx
+
+# get kubectl
+
+# get rust
